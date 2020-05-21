@@ -1,7 +1,8 @@
-const { History } = require('../models')
+const History = require('../models/history')
 
 module.exports = {
   async create (data) {
-    return await History.create(data)
+    const result = await History.create(data)
+    return result.toJSON()
   }
 }

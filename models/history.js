@@ -1,12 +1,25 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const History = sequelize.define('History', {
-    city: DataTypes.STRING,
-    ip: DataTypes.STRING,
-    response: DataTypes.TEXT
-  }, {});
-  History.associate = function(models) {
-    // associations can be defined here
-  };
-  return History;
-};
+'use strict'
+
+const Sequelize = require('sequelize')
+const config = require('../config/db.js')
+
+const sequelize = new Sequelize(config)
+
+const fields = {
+  city: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  ip: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  response: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  }
+}
+
+const history = sequelize.define('History', fields)
+
+module.exports = history
