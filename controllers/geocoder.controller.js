@@ -4,8 +4,8 @@ module.exports = {
   async index (req, res, next) {
     try {
       const { city } = req.params
-      const result = await geocodeService.index(city)
-      res.send(result)
+      const { features } = await geocodeService.index(city)
+      res.send(features)
     } catch (e) {
       res.status(500).send('Internal Server Error')
     }
