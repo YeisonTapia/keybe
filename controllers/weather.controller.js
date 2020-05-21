@@ -1,3 +1,5 @@
+'use strict'
+
 const { weatherService } = require('../services')
 const { HistoryRepository } = require('../respositories')
 const requestIp = require('request-ip')

@@ -1,3 +1,5 @@
+'use strict'
+
 const History = require('../models/history')
 
 module.exports = {

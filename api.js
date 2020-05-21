@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 const { GeocoderController, WeatherController } = require('./controllers')
 const asyncify = require('express-asyncify')

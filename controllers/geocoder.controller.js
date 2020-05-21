@@ -1,3 +1,5 @@
+'use strict'
+
 const { geocodeService } = require('../services')
 
 module.exports = {
