@@ -4,13 +4,13 @@ const proxyquire = require('proxyquire')
 
 let sandbox = null
 let historyRepository = null
-let HistoryStub = {
+const HistoryStub = {
   create: null
 }
 const newHistory = {
   city: 'Ibague',
   ip: '::1',
-  response:'{"latitude":4.4535114,"longitude":-75.194808,"timezone":"America/Bogota","currently":{"time":1589942099,"summary":"Overcast","icon":"cloudy"}'
+  response: '{"latitude":4.4535114,"longitude":-75.194808,"timezone":"America/Bogota","currently":{"time":1589942099,"summary":"Overcast","icon":"cloudy"}'
 }
 
 test.beforeEach(async () => {
@@ -18,17 +18,17 @@ test.beforeEach(async () => {
 
   HistoryStub.create = sandbox.stub()
   HistoryStub.create.withArgs(newHistory).returns(Promise.resolve({
-    toJSON () { 
-      return newHistory 
+    toJSON () {
+      return newHistory
     }
   }))
 
   historyRepository = proxyquire('../respositories/history.repository.js', {
-    '../models/history': HistoryStub,
+    '../models/history': HistoryStub
   })
 })
 
-test.afterEach(() => { 
+test.afterEach(() => {
   sandbox && sandbox.restore()
 })
 

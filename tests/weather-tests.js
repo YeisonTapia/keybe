@@ -7,7 +7,7 @@ let sandbox = null
 const lat = '4.4535114'
 const lgn = '-75.194808'
 let services = null
-let WeatherStub = {
+const WeatherStub = {
   index: null
 }
 
@@ -19,9 +19,8 @@ test.beforeEach(async () => {
   WeatherStub.index.withArgs(lat, lgn).returns(Promise.resolve(weatherFixtures.single))
 
   services = proxyquire('../services', {
-    './weather.service': WeatherStub,
+    './weather.service': WeatherStub
   })
-
 })
 
 test.afterEach(() => {
@@ -38,5 +37,3 @@ test.serial('weatherService#Index', async t => {
   t.true(WeatherStub.index.calledOnce, 'index should be called once')
   t.deepEqual(weather, weatherFixtures.single)
 })
-
-

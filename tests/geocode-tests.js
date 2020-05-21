@@ -6,7 +6,7 @@ const ageocodeFixtures = require('./fixtures/geocode')
 let sandbox = null
 const city = 'Ibague'
 let services = null
-let GeocodeStub = {
+const GeocodeStub = {
   index: null
 }
 
@@ -18,9 +18,8 @@ test.beforeEach(async () => {
   GeocodeStub.index.withArgs(city).returns(Promise.resolve(ageocodeFixtures.single))
 
   services = proxyquire('../services', {
-    './geocode.service': GeocodeStub,
+    './geocode.service': GeocodeStub
   })
-
 })
 
 test.afterEach(() => {
@@ -37,5 +36,3 @@ test.serial('GeocodeService#Index', async t => {
   t.true(GeocodeStub.index.calledOnce, 'index should be called once')
   t.deepEqual(geocode, ageocodeFixtures.single)
 })
-
-
