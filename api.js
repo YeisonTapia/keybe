@@ -1,7 +1,8 @@
 'use strict'
 
 const express = require('express')
-const { GeocoderController, WeatherController } = require('./controllers')
+const GeocoderController = require('./controllers/geocoder.controller')
+const WeatherController = require('./controllers/weather.controller')
 const asyncify = require('express-asyncify')
 const api = asyncify(express.Router())
 const cors = require('cors')

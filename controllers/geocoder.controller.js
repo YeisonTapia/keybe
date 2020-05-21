@@ -1,6 +1,6 @@
 'use strict'
 
-const { geocodeService } = require('../services')
+const geocodeService = require('../services/geocode.service')
 
 module.exports = {
   async index (req, res, next) {

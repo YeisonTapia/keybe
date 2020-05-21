@@ -1,7 +1,7 @@
 'use strict'
 
-const { weatherService } = require('../services')
-const { HistoryRepository } = require('../respositories')
+const weatherService = require('../services/weather.service')
+const HistoryRepository = require('../respositories/history.repository')
 const requestIp = require('request-ip')
 
 module.exports = {
