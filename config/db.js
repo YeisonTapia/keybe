@@ -1,7 +1,8 @@
 'use strict'
+require('dotenv').config({ path: './.env' })
 
 module.exports = {
-  username: 'root',
+  username: process.env.DB_USERNAME,
   password: '12345',
   database: 'database_development',
   host: '127.0.0.1',

@@ -3,7 +3,7 @@
 const express = require('express')
 const app = express()
 const api = require('./api')
-require('dotenv').config()
+require('dotenv').config({ path: './.env' })
 const port = process.env.PORT
 
 app.use('/api', api)

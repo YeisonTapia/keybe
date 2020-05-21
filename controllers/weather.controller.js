@@ -19,6 +19,7 @@ module.exports = {
 
       res.send(result)
     } catch (e) {
+      console.log(e)
       res.status(500).send('Internal Server Error', e)
     }
   }
